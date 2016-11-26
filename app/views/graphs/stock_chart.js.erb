@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  <% if true %>
+  <% if data.present? %>
     var currency = "USD"
     var data = JSON.parse('<%= raw data.to_a.to_json  %>');
 
