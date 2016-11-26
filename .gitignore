@@ -45,3 +45,6 @@ bower.json
 
 # Vim swap files
 *.sw*
+
+# OSX trash
+.DS_Store
