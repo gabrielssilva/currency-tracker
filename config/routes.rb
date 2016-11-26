@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # Home action
+  get '/', to: 'graphs#index'
+  get '/fetch', to: 'graphs#fetch_currencies'
 end

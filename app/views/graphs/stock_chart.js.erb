@@ -1,0 +1,38 @@
+$(document).ready(function(){
+  <% if true %>
+    var currency = "USD"
+    var data = JSON.parse('<%= raw data.to_a.to_json  %>');
+
+    Highcharts.stockChart('chart-container', {
+      title: {
+        text: 'Last seven days: '+currency+' x BRL'
+      },
+      rangeSelector: {
+        enabled: false
+      },
+      navigator: {
+        enabled: false
+      },
+      scrollbar: {
+        enabled: false
+      },
+      series: [{
+        name: currency,
+        data: filterCurrency(data),
+        tooltip: {
+          valueDecimals: 2
+        }
+      }]
+    });
+
+    function filterCurrency(data) {
+      return data.map(function(day) {
+        return [day[0], day[1][currency]];
+      });
+    }
+  <% else %>
+    var snackbarContainer = document.querySelector('#charts-toast');
+    var message = "Ops... Looks like CurrencyLayer is not respondig."
+    snackbarContainer.MaterialSnackbar.showSnackbar({message: message});
+  <% end %>
+});

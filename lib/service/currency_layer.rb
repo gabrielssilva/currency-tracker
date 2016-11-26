@@ -34,9 +34,9 @@ class Service::CurrencyLayer
 
   def self.index_quotes_in_brl(quotes)
     {
-      "ARS": quotes["USDARS"] / quotes["USDBRL"],
-      "EUR": quotes["USDEUR"] / quotes["USDBRL"],
-      "USD": 1 / quotes["USDBRL"],
+      "ARS": quotes["USDBRL"] / quotes["USDARS"],
+      "EUR": quotes["USDBRL"] / quotes["USDEUR"],
+      "USD": quotes["USDBRL"],
     }
   end
 end
