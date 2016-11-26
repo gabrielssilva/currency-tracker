@@ -3,7 +3,7 @@ $(document).ready(function(){
     var currency = "USD"
     var data = JSON.parse('<%= raw data.to_a.to_json  %>');
 
-    Highcharts.stockChart('chart-container', {
+    var chart = Highcharts.stockChart('chart-container', {
       title: {
         text: 'Last seven days: '+currency+' x BRL'
       },
@@ -20,7 +20,7 @@ $(document).ready(function(){
         name: currency,
         data: filterCurrency(data),
         tooltip: {
-          valueDecimals: 2
+          valueDecimals: 4
         }
       }]
     });
@@ -30,6 +30,27 @@ $(document).ready(function(){
         return [day[0], day[1][currency]];
       });
     }
+
+    function updateChart() {
+      chart.series[0].setData(filterCurrency(data), false);
+      chart.series[0].update({name: currency}, true);
+      chart.setTitle({text: 'Last seven days: '+currency+' x BRL'});
+    }
+
+    $("#ars-currency").on("click", function(){
+      currency = "ARS";
+      updateChart();
+    });
+
+    $("#eur-currency").on("click", function(){
+      currency = "EUR";
+      updateChart();
+    });
+
+    $("#usd-currency").on("click", function(){
+      currency = "USD";
+      updateChart();
+    });
   <% else %>
     var snackbarContainer = document.querySelector('#charts-toast');
     var message = "Ops... Looks like CurrencyLayer is not respondig."
