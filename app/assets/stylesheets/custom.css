@@ -15,3 +15,16 @@ main.mdl-layout__content {
   padding: 2vw;
 }
 
+.mdl-navigation__link:hover {
+  text-decoration: underline;
+}
+
+.mdl-navigation__link .material-icons {
+  margin-right: 0.5vw;
+  transition: transform 0.3s ease-in-out;
+}
+
+.mdl-navigation__link:hover .material-icons {
+  margin-right: 0.5vw;
+  transform: scale(1.4);
+}
