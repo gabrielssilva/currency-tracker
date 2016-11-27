@@ -1,7 +1,6 @@
 class Service::CurrencyLayer
 
   ENDPOINT = "http://apilayer.net/api/historical"
-  API_KEY = ENV['CURRENCY_LAYER_API_KEY']
   CURRENCIES = "ARS,BRL,EUR"
 
   def self.fetch_week
@@ -34,7 +33,7 @@ class Service::CurrencyLayer
   def self.build_uri(params)
     uri = URI.parse(ENDPOINT)
     uri.query = URI.encode_www_form(params.merge({
-      access_key: API_KEY
+      access_key: ENV['CURRENCY_LAYER_API_KEY']
     }))
     uri
   end
