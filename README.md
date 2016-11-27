@@ -1,24 +1,37 @@
-# README
+# Currency Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app shows a chart with the seven last days of ARS, USD, and EUR currency rates, taking the BRL currency as base.
 
-Things you may want to cover:
+## Running your own installation
 
-* Ruby version
+To run the Currency Tracker, you will need Ruby 2.3.0 (maybe it will work with older versions, but no guarantees!). You probable also want to use something like RVM.
 
-* System dependencies
+If you do not have bundler:
 
-* Configuration
+```
+$ gem install bundler
+```
 
-* Database creation
+Go ahead and install all dependencies.
 
-* Database initialization
+```
+$ bundle install
+```
 
-* How to run the test suite
+The last step is to export your Currency Layer (former jsonrates) API key to a system environment variable. If you do not have one, you can register free at [their website](https://currencylayer.com/). If you are using a Unix like system:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ export CURRENCY_LAYER_API_KEY=<your secrect API key>
+```
 
-* Deployment instructions
+And then you are good to go :)
 
-* ...
+```
+$ bundle exec rails server
+```
+
+## Running Tests
+
+```
+$ bundle exec rake tests
+```
