@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+- 2.3.0
+
+install:
+- bundle install
+- rake db:create
+
+script:
+- bundle exec rake test
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: Cpcqm0kdtC5e/7il8JAevPA/wrtFE+uC092Bx8B1UjAOLQXidsjrgDj4z3iM+f3vZ/41sfucPsFEh6Zhd5hxbirAs2K7s0pJvrpdUt1ukL8PDCg/o7IA4CS5cWf2h032l2OLzjlcKt1CNN8FqD4QEdSvbJZBcWcv8oNpT4FhU9gWZ8V9ZWocDdpdz08SQITzKjUZoiRUgVrPjnfk0qgyq8LCt7tbIXncbPPqdMs/+F2kgFR7Pur+o4xVKZgA1Dv8mKPzDfEC0K1ZAkCEEgUkoiNiWY0FxzFV58GMvMe/QKv/ikfLVAA9hgZcoMR2J5tSLXyVT3yqg1M+FZ5FVOd+f+jTeD1rttYmbPXkFYkx9NkKEOycUpbYsfC1j8rOMHkWN7kM/AWyEfCpTOYa2xL7Ko05equKbNjI6oTDjY6io154IXfRyrfspKPoKz6nR/eNPSGutpoz8K5fY6i82I9K2FTnFzRJKrAZpPrV4juydDXhdqU/cwN9WkHgPv4UGbq/lqxYhKBYSBZylywSrM6cYRbhkxIVmAv4Lxlyh7xBqxwnJSzWa13W/cfzBSs6GMZa5DiHiEDd/ni+O6hBAO2McgcTAOWM9awUrckYThaagqI15UgXUoLvwAKO7T5J6PcoF6/xSUuq0PVgDmMllF+d9sqoBqYkj6fzNgxzT2EuspE=
+  app: currency-charts
+  on:
+    repo: gabrielssilva/currency-tracker
