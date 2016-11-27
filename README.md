@@ -1,5 +1,7 @@
 # Currency Tracker
 
+![build status](https://travis-ci.org/gabrielssilva/currency-tracker.svg?branch=master)
+
 This app shows a chart with the seven last days of ARS, USD, and EUR currency rates, taking the BRL currency as base.
 
 ## Running your own installation
