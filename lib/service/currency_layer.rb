@@ -9,7 +9,8 @@ class Service::CurrencyLayer
     week_days.each do |day|
       day_quotes = fetch_rate(day)
       next if day_quotes.blank?
-      week_quotes[day.to_time.to_i] = index_quotes_in_brl(day_quotes)
+      timestamp_in_ms = day.to_time.to_i * 1000
+      week_quotes[timestamp_in_ms] = index_quotes_in_brl(day_quotes)
     end
     week_quotes
   end
